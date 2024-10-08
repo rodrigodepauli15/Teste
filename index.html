@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico - Garantia de Fábrica</title>
+    <script>
+        function verificarRespostas() {
+            // Captura os valores dos inputs
+            var resposta1 = document.querySelector('input[name="resposta1"]:checked').value;
+            var resposta2 = document.querySelector('input[name="resposta2"]:checked').value;
+
+            // Variável para armazenar o resultado final
+            var resultadoFinal = "";
+
+            // Verifica as combinações de respostas
+            
+            if (resposta1 === "Sim" && resposta2 === "Sim") {
+                resultadoFinal = "Fazer laudo técnico MAU USO cobrando as peças dos cliente, selecionar o status 'AGUARDANDO APROVAÇÃO DE LAUDO' e aguardar aprovação do cliente.";
+            } else if (resposta1 === "Sim" && resposta2 === "Não") {
+                resultadoFinal = "Fazer laudo técnico GARANTIA DE FÁBRICA, selecionar o status 'AGUARDANDO APROVAÇÃO DE LAUDO', e aguardar aprovação para Reparo.";
+            } else if (resposta1 === "Não" && resposta2 === "Sim") {
+                resultadoFinal = "Fazer laudo técnico MAU USO cobrar peças do cliente, alterar status 'AGUARDANDO APROVAÇÃO DE LAUDO' e sugerir antecipação de manutenção anual informando no E-MAIL.";
+            } else {
+                resultadoFinal = "Fazer laudo técnico GARANTIA DE FÁBRICA, selecionar o status 'AGUARDANDO APROVAÇÃO DE LAUDO', sugerir manutenção anual informando no e-mail e aguardar aprovação.";
+            }
+
+            // Exibe o resultado no parágrafo com id "resultado"
+            document.getElementById("resultado").innerHTML = resultadoFinal;
+        }
+    </script>
+</head>
+<body>
+    <h2>Diagnóstico - Garantia de Fábrica:</h2>
+    
+    <p>Pergunta 1: Equipamento tem menos de 10 meses de uso?</p>
+    <input type="radio" id="sim1" name="resposta1" value="Sim">
+    <label for="sim1"><o>Sim</o></label>
+    <input type="radio" id="nao1" name="resposta1" value="Não">
+    <label for="nao1"><o>Não</o></label><br><br>
+    <hr>
+    <p>Pergunta 2: Mau uso?</p>
+    <input type="radio" id="sim2" name="resposta2" value="Sim">
+    <label for="sim2"><o>Sim</o></label>
+    <input type="radio" id="nao2" name="resposta2" value="Não">
+    <label for="nao2"><o>Não</o></label><br><br>
+    <hr>
+    <button onclick="verificarRespostas()">Verificar Respostas</button>
+    
+    <p id="resultado"></p>
+<hr>
+    <style>
+        h2 {
+        font-family: 'Arial', sans-serif; /* Define a fonte */
+        font-size: 20px;                  /* Define o tamanho da fonte */
+        font-weight: bold;                /* Define o peso (negrito) */
+        color: #333;                    /* Define a cor da fonte */
+    }
+</style>
+
+<style>
+    p {
+    font-family: 'Arial', sans-serif; /* Define a fonte */
+    font-size: 15px;                  /* Define o tamanho da fonte */
+    font-weight: bold;                /* Define o peso (negrito) */
+    color: #333;                    /* Define a cor da fonte */
+}
+</style>
+<style>
+    o {
+    font-family: 'Arial', sans-serif; /* Define a fonte */
+    font-size: 15px;                  /* Define o tamanho da fonte */
+    
+    color: #333;                    /* Define a cor da fonte */
+}
+</style>
+</body>
+</html>
